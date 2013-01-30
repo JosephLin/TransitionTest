@@ -7,45 +7,42 @@
 //
 
 #import "DetailViewController.h"
+#import "ContainerController.h"
+#import "UIView+Additions.h"
 
 @interface DetailViewController ()
-- (void)configureView;
 @end
 
+
 @implementation DetailViewController
-
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
-
-- (void)configureView
-{
-    // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
+    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewWillAppear:animated];
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.descriptionLabel setY:200];
+    self.descriptionLabel.text = @"viewWillAppear";
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.descriptionLabel setY:300];
+    self.descriptionLabel.text = @"viewDidAppear";
+}
+
+
+- (IBAction)backButtonTapped:(id)sender
+{
+    [[ContainerController containerController] popControllerAnimated:YES];
+}
+
 
 @end

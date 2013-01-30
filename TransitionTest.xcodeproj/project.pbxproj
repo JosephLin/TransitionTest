@@ -19,6 +19,9 @@
 		7C97933516B9BD74000E63AA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C97933316B9BD74000E63AA /* MainStoryboard.storyboard */; };
 		7C97933816B9BD74000E63AA /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C97933716B9BD74000E63AA /* MasterViewController.m */; };
 		7C97933B16B9BD74000E63AA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C97933A16B9BD74000E63AA /* DetailViewController.m */; };
+		7C97934516B9BDC7000E63AA /* ContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C97934216B9BDA4000E63AA /* ContainerController.m */; };
+		7C97934816B9BFD8000E63AA /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C97934716B9BFD6000E63AA /* UIView+Additions.m */; };
+		7C97934916B9C156000E63AA /* ContainerPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C97934416B9BDA4000E63AA /* ContainerPushSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,12 @@
 		7C97933716B9BD74000E63AA /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		7C97933916B9BD74000E63AA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		7C97933A16B9BD74000E63AA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		7C97934116B9BDA4000E63AA /* ContainerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerController.h; sourceTree = "<group>"; };
+		7C97934216B9BDA4000E63AA /* ContainerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerController.m; sourceTree = "<group>"; };
+		7C97934316B9BDA4000E63AA /* ContainerPushSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerPushSegue.h; sourceTree = "<group>"; };
+		7C97934416B9BDA4000E63AA /* ContainerPushSegue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerPushSegue.m; sourceTree = "<group>"; };
+		7C97934616B9BFD6000E63AA /* UIView+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		7C97934716B9BFD6000E63AA /* UIView+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,10 +98,16 @@
 				7C97932A16B9BD74000E63AA /* AppDelegate.h */,
 				7C97932B16B9BD74000E63AA /* AppDelegate.m */,
 				7C97933316B9BD74000E63AA /* MainStoryboard.storyboard */,
+				7C97934116B9BDA4000E63AA /* ContainerController.h */,
+				7C97934216B9BDA4000E63AA /* ContainerController.m */,
 				7C97933616B9BD74000E63AA /* MasterViewController.h */,
 				7C97933716B9BD74000E63AA /* MasterViewController.m */,
 				7C97933916B9BD74000E63AA /* DetailViewController.h */,
 				7C97933A16B9BD74000E63AA /* DetailViewController.m */,
+				7C97934316B9BDA4000E63AA /* ContainerPushSegue.h */,
+				7C97934416B9BDA4000E63AA /* ContainerPushSegue.m */,
+				7C97934616B9BFD6000E63AA /* UIView+Additions.h */,
+				7C97934716B9BFD6000E63AA /* UIView+Additions.m */,
 				7C97932216B9BD74000E63AA /* Supporting Files */,
 			);
 			path = TransitionTest;
@@ -182,6 +197,9 @@
 				7C97932C16B9BD74000E63AA /* AppDelegate.m in Sources */,
 				7C97933816B9BD74000E63AA /* MasterViewController.m in Sources */,
 				7C97933B16B9BD74000E63AA /* DetailViewController.m in Sources */,
+				7C97934516B9BDC7000E63AA /* ContainerController.m in Sources */,
+				7C97934816B9BFD8000E63AA /* UIView+Additions.m in Sources */,
+				7C97934916B9C156000E63AA /* ContainerPushSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
