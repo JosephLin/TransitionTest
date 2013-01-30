@@ -17,24 +17,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tabBar contentMode="scaleToFill" id="PAS-pT-GP3">
-                                <rect key="frame" x="0.0" y="499" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="cgZ-Y6-s8h"/>
-                                    <tabBarItem systemItem="more" id="fqD-9I-PCU"/>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="iG7-ND-LwQ" id="BUo-OG-D6S"/>
-                                </connections>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="contentArea" destination="7bd-7W-nr9" id="31R-mh-3Ro"/>
-                        <outlet property="tabBar" destination="PAS-pT-GP3" id="rv6-IE-Qcj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5M7-g5-5IY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,7 +106,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ContainerController.h"/>
             <relationships>
                 <relationship kind="outlet" name="contentArea" candidateClass="UIView"/>
-                <relationship kind="outlet" name="tabBar" candidateClass="UITabBar"/>
             </relationships>
         </class>
         <class className="DetailViewController" superclassName="UIViewController">
