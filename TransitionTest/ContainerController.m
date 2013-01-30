@@ -13,8 +13,6 @@
 
 @interface ContainerController ()
 @property (nonatomic, strong) IBOutlet UIView *contentArea;
-@property (nonatomic, strong) NSMutableArray* stack;
-@property (nonatomic) BOOL inTransition;
 @end
 
 
@@ -29,11 +27,15 @@
     return (ContainerController*)((UIWindow *)[[[UIApplication sharedApplication] windows] objectAtIndex:0]).rootViewController;
 }
 
-- (UIViewController *)topController
+- (UIViewController *)topViewController
 {
-    return [self.stack lastObject];
+    return [self.childViewControllers lastObject];
 }
 
+//- (BOOL) shouldAutomaticallyForwardAppearanceMethods
+//{
+//    return NO;
+//}
 
 #pragma mark - View lifecycle
 
@@ -47,9 +49,6 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     UIViewController *controller = [storyBoard instantiateViewControllerWithIdentifier:@"MasterViewController"];
     
-    self.stack = [NSMutableArray array];
-    [self.stack addObject:controller];
-    
     [self addChildViewController:controller];
     controller.view.frame = self.contentArea.bounds;
     [self.contentArea addSubview:controller.view];
@@ -61,16 +60,16 @@
 
 - (void)pushController:(UIViewController *)toViewController withTransitionType:(UIViewAnimationOptions)transitionType  duration:(NSTimeInterval)duration
 {
-    if ( self.inTransition || self.topController == toViewController)
-        return;
+    NSLog(@"%@", self.childViewControllers);
+
+    UIViewController *fromViewController = self.topViewController;
     
-    self.inTransition = YES;
-    UIViewController *fromViewController = self.topController;
+    [self addChildViewController:toViewController];
 
     toViewController.view.frame = self.contentArea.bounds;
     
-    [self addChildViewController:toViewController];
-    
+    NSLog(@"%@", self.childViewControllers);
+
 //    [self.contentArea addSubview:toViewController.view];
 //    [toViewController beginAppearanceTransition:YES animated:YES];
 //    [toViewController viewWillAppear:YES];
@@ -83,8 +82,7 @@
                             animations:^{} 
                             completion:^(BOOL finished) {
                                 [toViewController didMoveToParentViewController:self];
-                                [self.stack addObject:toViewController];
-                                self.inTransition = NO;
+//                                [toViewController endAppearanceTransition];
                             }];
 }
 
@@ -105,21 +103,15 @@
 
 - (UIViewController*)popControllerWithTransitionType:(UIViewAnimationOptions)transitionType duration:(NSTimeInterval)duration
 {
-    NSInteger index = [self.stack count] - 2;
-    if ( self.inTransition || index < 0 ) {
-        
-        NSLog(@"Cannot pop. Already at root controller.");
-        return nil;    
-    }
+    NSInteger index = [self.childViewControllers count] - 2;
+    UIViewController *fromViewController = self.topViewController;
+    UIViewController *toViewController = self.childViewControllers[index];
     
-    self.inTransition = YES;
-    UIViewController *fromViewController = self.topController;
-    UIViewController *toViewController = [self.stack objectAtIndex:index];
-    
-    
-    toViewController.view.frame = self.contentArea.bounds;
     
     [fromViewController willMoveToParentViewController:nil];
+
+    toViewController.view.frame = self.contentArea.bounds;
+    
     [self transitionFromViewController:fromViewController 
                       toViewController:toViewController
                               duration:duration 
@@ -127,16 +119,9 @@
                             animations:^{} 
                             completion:^(BOOL finished) {
                                 [fromViewController removeFromParentViewController];
-                                [self.stack removeLastObject];
-                                self.inTransition = NO;
                             }];
     
     return fromViewController;
-}
-
-- (UIViewController*)popControllerWithTransitionType:(UIViewAnimationOptions)transitionType
-{
-    return [self popControllerWithTransitionType:transitionType duration:.5];
 }
 
 - (UIViewController*)popControllerAnimated:(BOOL)animated

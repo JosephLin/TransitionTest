@@ -12,7 +12,7 @@
 @interface ContainerController : UIViewController <UITabBarDelegate>
 
 + (ContainerController*)containerController;
-- (UIViewController *)topController;
+- (UIViewController *)topViewController;
 
 - (void)pushController:(UIViewController *)viewController animated:(BOOL)animated;
 - (UIViewController*)popControllerAnimated:(BOOL)animated;

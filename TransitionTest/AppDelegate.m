@@ -11,8 +11,19 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+{    
+    /* Bar Button Item */
+    
+    UIImage *blackButtonImage = [UIImage imageNamed:@"navButtonBlank"];
+//    UIImage *blackButtonImage = [[UIImage imageNamed:@"navButtonBlank"] resizableImageWithCapInsets:UIEdgeInsetsMake(14, 14, 15, 15)];
+    [[UIBarButtonItem appearance] setBackgroundImage:blackButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          [UIFont systemFontOfSize:12.0], UITextAttributeFont,
+                                                          [UIColor lightGrayColor], UITextAttributeTextColor,
+                                                          nil]
+                                                forState:UIControlStateNormal];
+    
+
     return YES;
 }
 							
