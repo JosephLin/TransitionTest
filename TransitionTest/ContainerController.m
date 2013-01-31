@@ -25,11 +25,6 @@
     return (ContainerController*)((UIWindow *)[[[UIApplication sharedApplication] windows] objectAtIndex:0]).rootViewController;
 }
 
-- (UIViewController *)topViewController
-{
-    return [self.childViewControllers lastObject];
-}
-
 
 
 #pragma mark - View lifecycle
@@ -53,9 +48,9 @@
 
 #pragma mark - Push
 
-- (void)pushController:(UIViewController *)toViewController withTransitionType:(UIViewAnimationOptions)transitionType  duration:(NSTimeInterval)duration
+- (void)pushController:(UIViewController *)toViewController
 {
-    UIViewController *fromViewController = self.topViewController;
+    UIViewController *fromViewController = [self.childViewControllers lastObject];
     
     [self addChildViewController:toViewController];
 
@@ -63,17 +58,17 @@
 
 //    [self.view addSubview:toViewController.view];
 //    [toViewController viewWillAppear:YES];
-    [toViewController beginAppearanceTransition:YES animated:NO];
+//    [toViewController beginAppearanceTransition:YES animated:NO];
     
     NSLog(@"Before transitionFromViewController:");
     [self transitionFromViewController:fromViewController
                       toViewController:toViewController
-                              duration:duration
-                               options:transitionType
+                              duration:0.5
+                               options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:^{}
                             completion:^(BOOL finished) {
                                 [toViewController didMoveToParentViewController:self];
-                                [toViewController endAppearanceTransition];
+//                                [toViewController endAppearanceTransition];
                             }];
     
 //    [self.view addSubview:toViewController.view];
@@ -87,25 +82,13 @@
 //    }];
 }
 
-- (void)pushController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    if (animated)
-    {
-        [self pushController:viewController withTransitionType:UIViewAnimationOptionTransitionCrossDissolve duration:0.5];
-    }
-    else
-    {
-        [self pushController:viewController withTransitionType:UIViewAnimationOptionTransitionNone duration:0];
-    }
-}
-
 
 #pragma mark - Pop
 
-- (UIViewController*)popControllerWithTransitionType:(UIViewAnimationOptions)transitionType duration:(NSTimeInterval)duration
+- (UIViewController*)popController
 {
     NSInteger index = [self.childViewControllers count] - 2;
-    UIViewController *fromViewController = self.topViewController;
+    UIViewController *fromViewController = [self.childViewControllers lastObject];
     UIViewController *toViewController = self.childViewControllers[index];
     
     
@@ -115,8 +98,8 @@
     
     [self transitionFromViewController:fromViewController 
                       toViewController:toViewController
-                              duration:duration 
-                               options:transitionType 
+                              duration:0.5
+                               options:UIViewAnimationOptionTransitionCrossDissolve 
                             animations:^{} 
                             completion:^(BOOL finished) {
                                 [fromViewController removeFromParentViewController];
@@ -125,17 +108,6 @@
     return fromViewController;
 }
 
-- (UIViewController*)popControllerAnimated:(BOOL)animated
-{
-    if (animated)
-    {
-        return [self popControllerWithTransitionType:UIViewAnimationOptionTransitionCrossDissolve duration:0.5];
-    }
-    else
-    {
-        return [self popControllerWithTransitionType:UIViewAnimationOptionTransitionNone duration:0];
-    }
-}
 
 
 

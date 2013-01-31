@@ -14,7 +14,7 @@
 
 - (void)perform
 {
-    [[ContainerController containerController] pushController:self.destinationViewController animated:YES];
+    [[ContainerController containerController] pushController:self.destinationViewController];
 }
 
 @end

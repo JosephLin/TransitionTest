@@ -60,7 +60,7 @@
 
 - (IBAction)backButtonTapped:(id)sender
 {
-    [[ContainerController containerController] popControllerAnimated:YES];
+    [[ContainerController containerController] popController];
 }
 
 

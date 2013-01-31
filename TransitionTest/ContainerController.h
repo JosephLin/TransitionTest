@@ -12,10 +12,9 @@
 @interface ContainerController : UIViewController
 
 + (ContainerController*)containerController;
-- (UIViewController *)topViewController;
 
-- (void)pushController:(UIViewController *)viewController animated:(BOOL)animated;
-- (UIViewController*)popControllerAnimated:(BOOL)animated;
+- (void)pushController:(UIViewController *)viewController;
+- (UIViewController*)popController;
 
 
 @end
