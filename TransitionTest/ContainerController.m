@@ -1,14 +1,13 @@
 //
 //  ContainerController.m
-//  NikeBasketball
+//  TransitionTest
 //
-//  Created by Rob Seward on 10/31/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Joseph Lin on 10/31/11.
+//  Copyright (c) 2011 Joseph Lin. All rights reserved.
 //
 
 #import "ContainerController.h"
 #import "MasterViewController.h"
-#import "UIView+Additions.h"
 
 
 @interface ContainerController ()

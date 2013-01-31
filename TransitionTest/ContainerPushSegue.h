@@ -1,9 +1,9 @@
 //
 //  ContainerPushSegue.h
-//  NikeBasketball
+//  TransitionTest
 //
-//  Created by Noah Keating on 1/17/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Joseph Lin on 1/17/12.
+//  Copyright (c) 2012 Joseph Lin. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

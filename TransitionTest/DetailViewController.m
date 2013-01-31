@@ -8,7 +8,6 @@
 
 #import "DetailViewController.h"
 #import "ContainerController.h"
-#import "UIView+Additions.h"
 
 @interface DetailViewController ()
 @end
@@ -20,7 +19,9 @@
 {
     [super viewDidLoad];
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    [self.descriptionLabel setY:50];
+    CGRect rect = self.descriptionLabel.frame;
+    rect.origin.y = 50;
+    self.descriptionLabel.frame = rect;
     self.descriptionLabel.text = @"viewDidLoad";
     self.descriptionLabel.backgroundColor = [UIColor redColor];
 }
@@ -29,7 +30,9 @@
 {
     [super viewWillAppear:animated];
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    [self.descriptionLabel setY:200];
+    CGRect rect = self.descriptionLabel.frame;
+    rect.origin.y = 200;
+    self.descriptionLabel.frame = rect;
     self.descriptionLabel.text = @"viewWillAppear";
     self.descriptionLabel.backgroundColor = [UIColor yellowColor];
 }
@@ -38,7 +41,9 @@
 {
     [super viewDidAppear:animated];
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    [self.descriptionLabel setY:350];
+    CGRect rect = self.descriptionLabel.frame;
+    rect.origin.y = 350;
+    self.descriptionLabel.frame = rect;
     self.descriptionLabel.text = @"viewDidAppear";
     self.descriptionLabel.backgroundColor = [UIColor greenColor];
 }
