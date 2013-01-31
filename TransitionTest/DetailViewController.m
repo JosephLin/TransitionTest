@@ -20,6 +20,9 @@
 {
     [super viewDidLoad];
     NSLog(@"%s", __PRETTY_FUNCTION__);
+    [self.descriptionLabel setY:50];
+    self.descriptionLabel.text = @"viewDidLoad";
+    self.descriptionLabel.backgroundColor = [UIColor redColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -28,16 +31,27 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [self.descriptionLabel setY:200];
     self.descriptionLabel.text = @"viewWillAppear";
+    self.descriptionLabel.backgroundColor = [UIColor yellowColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    [self.descriptionLabel setY:300];
+    [self.descriptionLabel setY:350];
     self.descriptionLabel.text = @"viewDidAppear";
+    self.descriptionLabel.backgroundColor = [UIColor greenColor];
 }
 
+- (void)viewWillLayoutSubviews
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
+- (void)viewDidLayoutSubviews
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
 
 - (IBAction)backButtonTapped:(id)sender
 {

@@ -12,7 +12,6 @@
 
 
 @interface ContainerController ()
-@property (nonatomic, strong) IBOutlet UIView *contentArea;
 @end
 
 
@@ -32,10 +31,7 @@
     return [self.childViewControllers lastObject];
 }
 
-//- (BOOL) shouldAutomaticallyForwardAppearanceMethods
-//{
-//    return NO;
-//}
+
 
 #pragma mark - View lifecycle
 
@@ -44,14 +40,14 @@
     [super viewDidLoad];
     
     self.view.autoresizesSubviews = YES;
-    self.contentArea.autoresizesSubviews = YES;
+    self.view.autoresizesSubviews = YES;
     
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     UIViewController *controller = [storyBoard instantiateViewControllerWithIdentifier:@"MasterViewController"];
     
     [self addChildViewController:controller];
-    controller.view.frame = self.contentArea.bounds;
-    [self.contentArea addSubview:controller.view];
+    controller.view.frame = self.view.bounds;
+    [self.view addSubview:controller.view];
     [controller didMoveToParentViewController:self];
 }
 
@@ -60,30 +56,36 @@
 
 - (void)pushController:(UIViewController *)toViewController withTransitionType:(UIViewAnimationOptions)transitionType  duration:(NSTimeInterval)duration
 {
-    NSLog(@"%@", self.childViewControllers);
-
     UIViewController *fromViewController = self.topViewController;
     
     [self addChildViewController:toViewController];
 
-    toViewController.view.frame = self.contentArea.bounds;
-    
-    NSLog(@"%@", self.childViewControllers);
+    toViewController.view.frame = self.view.bounds;
 
-//    [self.contentArea addSubview:toViewController.view];
-//    [toViewController beginAppearanceTransition:YES animated:YES];
+//    [self.view addSubview:toViewController.view];
 //    [toViewController viewWillAppear:YES];
+    [toViewController beginAppearanceTransition:YES animated:NO];
     
     NSLog(@"Before transitionFromViewController:");
     [self transitionFromViewController:fromViewController
                       toViewController:toViewController
                               duration:duration
-                               options:transitionType// | UIViewAnimationOptionAllowAnimatedContent
-                            animations:^{} 
+                               options:transitionType
+                            animations:^{}
                             completion:^(BOOL finished) {
                                 [toViewController didMoveToParentViewController:self];
-//                                [toViewController endAppearanceTransition];
+                                [toViewController endAppearanceTransition];
                             }];
+    
+//    [self.view addSubview:toViewController.view];
+//    toViewController.view.alpha = 0.0;
+//    
+//    [UIView animateWithDuration:0.5 animations:^{
+//        toViewController.view.alpha = 1.0;
+//    } completion:^(BOOL finished) {
+//        [toViewController didMoveToParentViewController:self];
+//
+//    }];
 }
 
 - (void)pushController:(UIViewController *)viewController animated:(BOOL)animated
@@ -110,7 +112,7 @@
     
     [fromViewController willMoveToParentViewController:nil];
 
-    toViewController.view.frame = self.contentArea.bounds;
+    toViewController.view.frame = self.view.bounds;
     
     [self transitionFromViewController:fromViewController 
                       toViewController:toViewController

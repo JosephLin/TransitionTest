@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ContainerController : UIViewController <UITabBarDelegate>
+@interface ContainerController : UIViewController
 
 + (ContainerController*)containerController;
 - (UIViewController *)topViewController;
