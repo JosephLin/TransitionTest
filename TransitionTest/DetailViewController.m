@@ -8,8 +8,12 @@
 
 #import "DetailViewController.h"
 #import "ContainerController.h"
+#import "UIBarButtonItem+AppAppearance.h"
+
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @end
 
 
@@ -24,6 +28,14 @@
     self.descriptionLabel.frame = rect;
     self.descriptionLabel.text = @"viewDidLoad";
     self.descriptionLabel.backgroundColor = [UIColor redColor];
+    
+    NSArray *items = [self.toolbar.items arrayByAddingObjectsFromArray:@[self.navigationBar.topItem.leftBarButtonItem, self.navigationBar.topItem.rightBarButtonItem]];
+
+    for (UIBarButtonItem *item in items)
+    {
+        [item setAppBackground];
+        [item setAppFont];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -35,6 +47,10 @@
     self.descriptionLabel.frame = rect;
     self.descriptionLabel.text = @"viewWillAppear";
     self.descriptionLabel.backgroundColor = [UIColor yellowColor];
+    
+    [self.view layoutIfNeeded];
+    [self.toolbar layoutIfNeeded];
+    [self.navigationBar layoutIfNeeded];
 }
 
 - (void)viewDidAppear:(BOOL)animated

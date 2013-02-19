@@ -80,7 +80,11 @@
                                 <rect key="frame" x="0.0" y="504" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
+                                    <barButtonItem title="Item" id="dgw-Dz-rcq"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aNq-ow-k9c"/>
                                     <barButtonItem title="Item" id="2Mx-s4-IqF"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="AlE-yu-Tql"/>
+                                    <barButtonItem title="Item" id="9uk-gK-6d3"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -89,6 +93,8 @@
                     <navigationItem key="navigationItem" title="Detail" id="26"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="27" id="m0l-jN-edz"/>
+                        <outlet property="navigationBar" destination="Ja9-bY-Fcr" id="eXv-73-rET"/>
+                        <outlet property="toolbar" destination="DAf-bt-fdh" id="sRf-HO-FL1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
@@ -105,6 +111,8 @@
             <relationships>
                 <relationship kind="action" name="backButtonTapped:"/>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
         <class className="MasterViewController" superclassName="UIViewController">

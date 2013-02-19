@@ -21,6 +21,7 @@
 		7C97933B16B9BD74000E63AA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C97933A16B9BD74000E63AA /* DetailViewController.m */; };
 		7C97934516B9BDC7000E63AA /* ContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C97934216B9BDA4000E63AA /* ContainerController.m */; };
 		7C97934916B9C156000E63AA /* ContainerPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C97934416B9BDA4000E63AA /* ContainerPushSegue.m */; };
+		7CC1848116D3F29300EF6CDF /* UIBarButtonItem+AppAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC1848016D3F29300EF6CDF /* UIBarButtonItem+AppAppearance.m */; };
 		7CED027916B9CC240020596E /* navButtonBlank.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CED027716B9CC240020596E /* navButtonBlank.png */; };
 		7CED027A16B9CC240020596E /* navButtonBlank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CED027816B9CC240020596E /* navButtonBlank@2x.png */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,8 @@
 		7C97934216B9BDA4000E63AA /* ContainerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerController.m; sourceTree = "<group>"; };
 		7C97934316B9BDA4000E63AA /* ContainerPushSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerPushSegue.h; sourceTree = "<group>"; };
 		7C97934416B9BDA4000E63AA /* ContainerPushSegue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerPushSegue.m; sourceTree = "<group>"; };
+		7CC1847F16D3F29300EF6CDF /* UIBarButtonItem+AppAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+AppAppearance.h"; sourceTree = "<group>"; };
+		7CC1848016D3F29300EF6CDF /* UIBarButtonItem+AppAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+AppAppearance.m"; sourceTree = "<group>"; };
 		7CED027716B9CC240020596E /* navButtonBlank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navButtonBlank.png; sourceTree = "<group>"; };
 		7CED027816B9CC240020596E /* navButtonBlank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navButtonBlank@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +101,8 @@
 			children = (
 				7C97932A16B9BD74000E63AA /* AppDelegate.h */,
 				7C97932B16B9BD74000E63AA /* AppDelegate.m */,
+				7CC1847F16D3F29300EF6CDF /* UIBarButtonItem+AppAppearance.h */,
+				7CC1848016D3F29300EF6CDF /* UIBarButtonItem+AppAppearance.m */,
 				7C97933316B9BD74000E63AA /* MainStoryboard.storyboard */,
 				7C97934116B9BDA4000E63AA /* ContainerController.h */,
 				7C97934216B9BDA4000E63AA /* ContainerController.m */,
@@ -202,6 +207,7 @@
 				7C97933B16B9BD74000E63AA /* DetailViewController.m in Sources */,
 				7C97934516B9BDC7000E63AA /* ContainerController.m in Sources */,
 				7C97934916B9C156000E63AA /* ContainerPushSegue.m in Sources */,
+				7CC1848116D3F29300EF6CDF /* UIBarButtonItem+AppAppearance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

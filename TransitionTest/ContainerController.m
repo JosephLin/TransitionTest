@@ -53,33 +53,21 @@
     UIViewController *fromViewController = [self.childViewControllers lastObject];
     
     [self addChildViewController:toViewController];
-
     toViewController.view.frame = self.view.bounds;
 
-//    [self.view addSubview:toViewController.view];
-//    [toViewController viewWillAppear:YES];
-//    [toViewController beginAppearanceTransition:YES animated:NO];
+//    [toViewController.view layoutIfNeeded];
+    [toViewController beginAppearanceTransition:YES animated:YES];
     
     NSLog(@"Before transitionFromViewController:");
     [self transitionFromViewController:fromViewController
                       toViewController:toViewController
                               duration:0.5
-                               options:UIViewAnimationOptionTransitionCrossDissolve
+                               options:UIViewAnimationOptionTransitionCrossDissolve //| UIViewAnimationOptionAllowAnimatedContent
                             animations:^{}
                             completion:^(BOOL finished) {
                                 [toViewController didMoveToParentViewController:self];
-//                                [toViewController endAppearanceTransition];
-                            }];
-    
-//    [self.view addSubview:toViewController.view];
-//    toViewController.view.alpha = 0.0;
-//    
-//    [UIView animateWithDuration:0.5 animations:^{
-//        toViewController.view.alpha = 1.0;
-//    } completion:^(BOOL finished) {
-//        [toViewController didMoveToParentViewController:self];
-//
-//    }];
+                                [toViewController endAppearanceTransition];
+                            }];    
 }
 
 
